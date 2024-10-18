@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima em {{ city }}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Clima em {{ city }}</h1>
+
+        <!-- Exibir o mapa -->
+        <div class="mt-4">
+            {{ map_html | safe }}
+        </div>
+
+        <!-- Informações do clima separadas -->
+        <div class="mt-4">
+            <h3>Informações do clima em {{ city }}</h3> <!-- Adicionando o nome da cidade -->
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Temperatura:</strong> {{ weather.main.temp }}°C</li>
+                <li class="list-group-item"><strong>Descrição:</strong> {{ weather.weather[0].description }}</li>
+                <li class="list-group-item"><strong>Humidade:</strong> {{ weather.main.humidity }}%</li>
+                <li class="list-group-item"><strong>Vento:</strong> {{ weather.wind.speed }} m/s</li>
+            </ul>
+        </div>
+
+        <!-- Botão Voltar para buscar outra cidade -->
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-secondary">Buscar outra cidade</a>
+        </div>
+    </div>
+</body>
+</html>
